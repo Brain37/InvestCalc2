@@ -1,0 +1,62 @@
+﻿@Scripts.Render("~/bundles/jsBundle")
+@Styles.Render("~/Content/css")
+@{
+    Layout = null;
+}
+<!doctype html>
+<meta charset="utf-8" />
+
+<script type="text/javascript">
+    $(function () {
+        Invest();
+    });
+</script>
+
+<html>
+<head>
+    <title>Future Money Calculator</title>
+</head>
+<body>
+    <div id="errorMessage" class="bg-danger input-lg text-center hidden"></div>
+    <div class="col-md-2">
+        <ul id="unorderedList"class="nav nav-pills nav-stacked">
+            <li id="intialMoneyListItem" class="active"><a class="label-warning" data-toggle="tab" href="#intialMoney">Initial Amount</a></li>
+            <li id="interestRateListItem"><a data-toggle="pill" href="#interestRate">Interest Rate</a></li>
+            <li id="investedTimeListItem"><a data-toggle="pill" href="#investedTime">Investment Length</a></li>
+            <li id="compoundedListItem"><a data-toggle="pill" href="#compounded">Compound Frequency</a></li>
+            <li id="resultsListItem"><a data-toggle="pill" href="#results">Get Results</a></li>
+        </ul>
+    </div>
+
+    <div id="messages"></div>
+
+    <div class="tab-content">
+        <div id="intialMoney" class="tab-pane fade in active">
+            <h1 class="text-center">What is your Initial Money Amount?</h1>
+            <input id="initialMoneyInput" type="number" class="input-lg input-position"/>
+        </div> 
+        <div id="interestRate" class="tab-pane fade">
+            <h1 class="text-center">What is the Interest Rate?</h1>
+            <input id="interestRateInput" type="number" class="input-lg input-position"/>
+        </div>
+        <div id="investedTime" class="tab-pane fade">
+            <h1 class="text-center">How many years was the money invested?</h1>
+            <input id="periodInput" type="number" class="input-lg input-position"/>
+        </div>
+        <div id="compounded" class="tab-pane fade">
+            <h1 class="text-center">How often is the interest compounded?</h1>
+            <select id="compoundedSelect" class="form-control center-block input-position">
+                <option value="365.25">Daily</option>
+                <option value="12">Monthly</option>
+                <option value="4">Quarterly</option>
+                <option value="1">Yearly</option>
+            </select>
+        </div>
+        <div id="results" class="tab-pane fade">
+            <h1 class="text-center">The Resulting Amount is:</h1>
+            <text id="resultOutput" class="input-lg input-position">Please Finish filling in the input fields.</text>
+        </div>
+    </div>
+</body>
+
+</html>
